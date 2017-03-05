@@ -1,0 +1,9 @@
+DISCONNECT_MESSAGE = "Game ended. If you want to debate again refresh the page"
+MATCHING_MESSAGE = "You have been matched with: "
+LOOKING_FOR_PLAYER = "Please wait while we find a player to match you with"
+SYSTEM_MESSAGE = "DebateIT"
+WIN_GAME = "wins the game"
+DRAW_GAME = "It is a draw"
+WIN_ADD_SCORE = 25
+DRAW_ADD_SCORE = 10
+LOSE_ADD_SCORE = 5

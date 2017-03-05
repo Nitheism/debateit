@@ -1,0 +1,21 @@
+@-ms-viewport     { width: device-width; }
+@-o-viewport      { width: device-width; }
+@viewport         { width: device-width; }
+
+.social-btn-holder{
+  padding:10px;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+.social-btn-holder .btn-social{
+  font-size:12px;
+  font-weight:bold;
+}
+
+.btn-social{
+  color: white;
+  opacity:0.9;
+}
+.centered-text{
+  text-align: center;
+}
