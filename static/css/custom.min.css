@@ -2,3 +2,7 @@ body{padding-top:50px}body>.navbar{-webkit-transition:background-color .3s ease-
 @-ms-viewport     { width: device-width; }
 @-o-viewport      { width: device-width; }
 @viewport         { width: device-width; }
+.navbar-brand
+{
+    padding-top: 0;
+}
