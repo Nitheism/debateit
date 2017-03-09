@@ -11,8 +11,13 @@ from django.shortcuts import render, redirect
 # complex logic and is a different function
 
 @login_required
-def profile(request):
-    userc = request.user
+def profile(request, username):
+    if username:
+        userc = UserModel.objects.get(username=username)
+    else:
+        print("shit")
+        userc = request.user
+
     context = {
         'username': userc.username,
         'name': userc.get_full_name,

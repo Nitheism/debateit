@@ -39,7 +39,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="/">DebateIT</a></li>
-                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/profile/{{ user.username }}">Profile</a></li>
                         <li><a href="/edit_profile">Edit Profile</a></li>
                         <li><a href="/debate">Debate</a></li>
                         <li class="active"><a href="/ranklist">Ranklist</a></li>
@@ -70,7 +70,7 @@
         <tbody>
         {% for item in table %}
         <tr>
-            <td>{{item.username}}</td>
+            <td><a href="/profile/{{item.username}}">{{item.username}}</a></td>
             <td>{{ item.score }}</td>
             <td>{{ item.country }} <img src="{{item.country.flag}}"/></td>
         </tr>
@@ -87,8 +87,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-
-
 
 
 </body>
