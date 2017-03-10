@@ -12,7 +12,7 @@ def get_rating(text):
     # add my static folder to nltk path so it can work on the host as well
     data.path.append('static/nltk_data/')
     dictionary = joblib.load('static/MLmodels/CountVect.pkl')
-    count_vectorizer = CountVectorizer(vocabulary=dictionary, max_df=0.8, ngram_range=(1, 3))
+    count_vectorizer = CountVectorizer(vocabulary=dictionary, max_df=0.6, ngram_range=(1, 4))
 
     words = word_tokenize(text)
     # if len(words) < 2:
