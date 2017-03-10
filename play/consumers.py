@@ -68,7 +68,7 @@ def ws_receive(message):
                 current_room.args_count_b += 1
                 current_room.save()
                 # Use my algorithm here
-                score = round(score_argument.get_rating(text), 4)
+                score = round(score_argument.get_rating(text), 2)
                 current_room.score_b += score
 
                 # send message to both channels

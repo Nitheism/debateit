@@ -15,8 +15,8 @@ def get_rating(text):
     count_vectorizer = CountVectorizer(vocabulary=dictionary, max_df=0.6, ngram_range=(1, 4))
 
     words = word_tokenize(text)
-    # if len(words) < 2:
-    #     return -1
+    if len(words) < 2:
+        return -1
 
     tags = pos_tag(words)
     counts = Counter(tag for word, tag in tags)
