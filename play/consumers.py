@@ -94,7 +94,8 @@ def ws_receive(message):
                 # sending the coresponding messages to both channels and disconnect
 
             if current_room.args_count_b == 2 and current_room.args_count_a == 2:
-                if current_room.score_a / 2 < current_room.score_b / 2:
+
+                if current_room.score_a < current_room.score_b:
                     other_channel.send({'text': json.dumps({
                         "message": username + " " + WIN_GAME,
                         "user": SYSTEM_MESSAGE, }),
@@ -109,7 +110,7 @@ def ws_receive(message):
                     losing_user = get_object_or_404(UserModel, username=current_room.username_a)
                     losing_user.score += LOSE_ADD_SCORE
                     losing_user.save()
-                elif current_room.score_a / 2 == current_room.score_b / 2:
+                elif current_room.score_a == current_room.score_b:
                     other_channel.send({'text': json.dumps({
                         "message": DRAW_GAME,
                         "user": SYSTEM_MESSAGE, }),
@@ -167,7 +168,8 @@ def ws_receive(message):
                     "user": username, }),
                 })
             if current_room.args_count_a == 2 and current_room.args_count_b == 2:
-                if current_room.score_b / 2 < current_room.score_a / 2:
+
+                if current_room.score_b < current_room.score_a:
                     other_channel.send({'text': json.dumps({
                         "message": username + " " + WIN_GAME,
                         "user": SYSTEM_MESSAGE, }),
@@ -183,7 +185,7 @@ def ws_receive(message):
                     losing_user.score += LOSE_ADD_SCORE
                     losing_user.save()
 
-                elif current_room.score_b / 2 == current_room.score_a / 2:
+                elif current_room.score_b == current_room.score_a:
                     other_channel.send({'text': json.dumps({
                         "message": DRAW_GAME,
                         "user": SYSTEM_MESSAGE, }),

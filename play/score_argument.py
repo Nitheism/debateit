@@ -12,9 +12,12 @@ def get_rating(text):
     # add my static folder to nltk path so it can work on the host as well
     data.path.append('static/nltk_data/')
     dictionary = joblib.load('static/MLmodels/CountVect.pkl')
-    count_vectorizer = CountVectorizer(vocabulary=dictionary, max_df=0.8, ngram_range=(1, 4))
+    count_vectorizer = CountVectorizer(vocabulary=dictionary, max_df=0.8, ngram_range=(1, 3))
 
     words = word_tokenize(text)
+    # if len(words) < 2:
+    #     return -1
+
     tags = pos_tag(words)
     counts = Counter(tag for word, tag in tags)
     md, can, could, shall, should, must, may, might, will, would = get_modals(words, len(words), counts.get('MD'))
@@ -48,6 +51,7 @@ def get_rating(text):
     features['shall'] = pd.Series(shall, index=features.index)
     features['would'] = pd.Series(would, index=features.index)
     features['must'] = pd.Series(must, index=features.index)
+    features['must'] = pd.Series(len(words), index=features.index)
 
     regression = joblib.load('static/MLmodels/Regression.pkl')
 
