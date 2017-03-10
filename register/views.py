@@ -16,7 +16,7 @@ def registration(request):
 
 def user_login(request):
     if request.user.is_authenticated():
-        return redirect('/profile')
+        return redirect('/profile' + request.user.username)
 
     form = LoginForm(request.POST or None)
 
@@ -24,10 +24,9 @@ def user_login(request):
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
-        print(user)
         if user is not None:
             login(request, user)
-            return redirect('/profile')
+            return redirect('/profile/' + username)
 
     context = {
         'form': form
